@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="300" height="120">
+  <defs>
+    <linearGradient id="bullGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#6692FF"/>
+      <stop offset="100%" stop-color="#16347A"/>
+    </linearGradient>
+    <linearGradient id="redAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EE1222"/>
+      <stop offset="100%" stop-color="#CC0010"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Badge / Shield -->
+  <rect x="5" y="5" width="290" height="110" rx="16" fill="#0C1324" stroke="#6692FF" stroke-width="2" stroke-opacity="0.4"/>
+  <!-- Silver / Chrome Bull Silhouette -->
+  <g transform="translate(25, 20) scale(0.65)">
+    <path d="M45,25 C40,15 25,12 15,18 C8,22 5,30 8,40 C12,50 20,55 30,58 C20,62 10,70 12,85 C14,95 28,105 45,95 C55,88 65,75 75,70 C85,65 95,72 105,80 C115,88 125,78 120,65 C115,50 90,40 75,35 C65,30 55,25 45,25 Z" fill="url(#bullGrad)"/>
+    <circle cx="25" cy="32" r="3" fill="#EE1222"/>
+  </g>
+  <!-- Text Elements -->
+  <text x="115" y="55" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" letter-spacing="3">RB</text>
+  <text x="115" y="78" font-family="'Montserrat', sans-serif" font-weight="700" font-size="13" fill="#6692FF" letter-spacing="4">RACING BULLS</text>
+  <!-- Red Racing Stripe -->
+  <rect x="115" y="88" width="145" height="4" rx="2" fill="url(#redAccent)"/>
+</svg>

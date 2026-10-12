@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 248, 250, 252;
+  --background-start-rgb: 9, 11, 14;
+  --background-end-rgb: 17, 20, 26;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: #090B0E;
+  min-height: 100vh;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* F1 Cockpit Grid Pattern */
+.bg-grid-cockpit {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* Custom Telemetry Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #090B0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E232D;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2D3748;
+}
+
+/* Neon Telemetry Glows */
+.glow-cyan {
+  filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.45));
+}
+.glow-amber {
+  filter: drop-shadow(0 0 6px rgba(255, 184, 0, 0.45));
+}
+.glow-crimson {
+  filter: drop-shadow(0 0 6px rgba(225, 6, 0, 0.5));
+}
+
+/* Tabular Numbers for Timings */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hardware accelerated transition */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

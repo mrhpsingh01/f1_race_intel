@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: f1user
+      POSTGRES_PASSWORD: ${PASSWORD:-f1pass}
+      POSTGRES_DB: f1_race_intel
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U f1user -d f1_race_intel"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://f1user:${PASSWORD:-f1pass}@postgres:5432/f1_race_intel
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      FASTF1_CACHE_DIR: ${FASTF1_CACHE_DIR:-/app/data/fastf1_cache}
+      JOLPICA_USER_AGENT: ${JOLPICA_USER_AGENT:-F1RaceIntel/1.0 (user@example.com)}
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:

@@ -1,0 +1,18 @@
+{
+  "PRE_WEEKEND": {
+    "model_name": "XGBoost_Pre",
+    "brier_score": 0.0884,
+    "log_loss": 0.2891,
+    "calibration_note": "Brier score: 0.0884 (lower = better). Log loss: 0.2891.",
+    "n_test_samples": 479,
+    "n_positives": 72
+  },
+  "POST_QUALIFYING": {
+    "model_name": "XGBoost_Post",
+    "brier_score": 0.0678,
+    "log_loss": 0.2191,
+    "calibration_note": "Brier score: 0.0678 (lower = better). Log loss: 0.2191.",
+    "n_test_samples": 479,
+    "n_positives": 72
+  }
+}
